@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
+using Backend.Repository.Auth;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,7 @@ builder.Services.AddSwaggerGen();
 
 
 
+builder.Services.AddTransient<IAuth, ImplAuth>();
 builder.Services.AddTransient<IRepository, ImplRepository>();
 builder.Services.AddTransient<IService, implService>();
 
